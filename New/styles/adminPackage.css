@@ -1,0 +1,68 @@
+.content{
+    overflow: scroll;
+    width: 85%;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.content-title{
+    padding: 20px 30px;
+    /* width: 100%; */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    /* background-color: red; */
+}
+
+.content-title h3{
+    font-family: Roboto, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #3B4249;
+}
+
+.border{
+    padding: 10px 30px;
+    /* background-color: yellow; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table td, .table th{
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 16px;
+    font-family: Roboto, sans-serif;
+}
+
+.table th{
+    background-color: #1C64A3;
+    color: #ffffff;
+}
+
+.table tbody tr:nth-child(even){
+    background-color: #f5f5f5;
+}
+
+.crud-btn{
+    background-color: #1C64A3;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0px 10px;
+}
+
+.crud-btn:hover{
+    background-color: #003f86;
+}
+
+.action{
+    width: 100px;
+}

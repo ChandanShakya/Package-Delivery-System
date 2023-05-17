@@ -66,6 +66,7 @@ I have divided the Code into two folders:
     │   ├── cusDashboard.css
     │   ├── drDashboard.css
     │   ├── editProfile.css
+    │   ├── index_main.css
     │   ├── login.css
     │   ├── packageRecords.css
     │   ├── signup.css
@@ -73,6 +74,7 @@ I have divided the Code into two folders:
     ├── database
     │   └── elitelogisticsdb.sql
     └── php
+    |   ├── index_main.php
     |   ├── page_footer.php
     |   └── page_header.php
     └── index.php

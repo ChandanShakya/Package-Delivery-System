@@ -1,0 +1,5 @@
+/* Navbar center override */
+
+.nav-link {
+    float: right;
+}

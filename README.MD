@@ -73,7 +73,9 @@ I have divided the Code into two folders:
     ├── database
     │   └── elitelogisticsdb.sql
     └── php
-        └── index.php
+    |   ├── page_footer.php
+    |   └── page_header.php
+    └── index.php
     ```
 
     </details>

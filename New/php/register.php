@@ -75,8 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         // Insert new user into the database
-        $stmt = $pdo->prepare("INSERT INTO account_details (serial_no, name, email, password, phone_no, default_location,type_id) 
-                               VALUES (:serialNo, :name, :email, :password, :phone, :location,1)");
+        $stmt = $pdo->prepare("INSERT INTO account_details (serial_no, name, email, password, phone_no, default_location,type_id,created_at) 
+                               VALUES (:serialNo, :name, :email, :password, :phone, :location,1,NOW())");
         $stmt->bindParam(':serialNo', $serialNo);
         $stmt->bindParam(':name', $fullName);
         $stmt->bindParam(':email', $email);

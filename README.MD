@@ -181,6 +181,7 @@ address_type
 - address_type_id (primary key)
 - address_type_name (e.g., Pickup Address, Delivery Address)
 
+
 ```mermaid
 erDiagram
   ACCOUNT_TYPE ||--o{ ACCOUNT_DETAILS : has
@@ -240,5 +241,6 @@ erDiagram
     VARCHAR(255) address
   }
 ```
+
 
 </details>

@@ -11,7 +11,6 @@
 
       <?php
       $orderCode = $_POST['orderCode'];
-      echo '<div class="masthead-heading text-uppercase">' . $orderCode . '</div>';
 
       // Query the database to fetch package details based on order code
       $stmt = $pdo->prepare("SELECT pd.order_code, ad1.address AS pickup_address, ad2.address AS delivery_address, account_details.name AS sender_name, receiver_details.name AS receiver_name, pd.date_received, pd.date_delivered, delivery_status.status_name AS delivery_status FROM package_details pd JOIN account_details ON pd.account_id = account_details.account_id JOIN receiver_details ON pd.receiver_id = receiver_details.receiver_id JOIN delivery_status ON pd.delivery_status_id = delivery_status.status_id JOIN address_details ad1 ON pd.order_code = ad1.order_code AND ad1.address_type_id = 1 JOIN address_details ad2 ON pd.order_code = ad2.order_code AND ad2.address_type_id = 2 WHERE pd.order_code = :orderCode;");

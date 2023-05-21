@@ -253,6 +253,7 @@ CREATE TABLE address_details (
 
 </details>
 
+```mermaid
 erDiagram
   ACCOUNT_TYPE ||--o{ ACCOUNT_DETAILS : has
   ACCOUNT_DETAILS }o--|| DELIVERY_STATUS : has
@@ -310,3 +311,4 @@ erDiagram
     INT address_type_id FK
     VARCHAR(255) address
   }
+```

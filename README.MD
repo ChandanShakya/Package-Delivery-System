@@ -137,51 +137,6 @@ I have divided the Code into two folders:
     </details>
 </details>
 
-<details>
-    <summary>Click to expand/collapse Schema</summary>
-
-account_details
-- account_id (primary key)
-- serial_no
-- name
-- email
-- password
-- phone_no
-- type_id (foreign key to account_type table)
-- created_on
-
-account_type
-- type_id (primary key)
-- type_name (e.g., user, admin, delivery rider)
-
-package_details
-- order_code (primary key)
-- account_id (foreign key to account_details)
-- receiver_id (foreign key to receiver_details)
-- date_received
-- date_delivered
-- delivery_status_id (foreign key to delivery_status table)
-
-delivery_status
-- status_id (primary key)
-- status_name (e.g., Pending for approval, Waiting for pickup, In Transit, Delivered, Canceled)
-
-receiver_details
-- receiver_id (primary key)
-- name
-- phone_no
-
-address_details
-- address_id (primary key)
-- order_code (foreign key to package_details)
-- address_type_id (foreign key to address_type table)
-- address
-
-address_type
-- address_type_id (primary key)
-- address_type_name (e.g., Pickup Address, Delivery Address)
-
-
 ```mermaid
 erDiagram
   ACCOUNT_TYPE ||--o{ ACCOUNT_DETAILS : has
@@ -241,6 +196,3 @@ erDiagram
     VARCHAR(255) address
   }
 ```
-
-
-</details>

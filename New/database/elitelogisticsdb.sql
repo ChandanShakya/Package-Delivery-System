@@ -21,11 +21,11 @@ CREATE TABLE account_details (
   created_on DATE NOT NULL,
   default_location VARCHAR(255) NOT NULL,
   INDEX idx_name (name),
-  FOREIGN KEY (type_id) REFERENCES account_type (type_id)
+  FOREIGN KEY (type_id) REFERENCES account_type (type_id) ON DELETE CASCADE
 );
 INSERT INTO account_details (serial_no, name, email, password, phone_no, type_id, created_on, default_location) VALUES
-  (123456, 'John Doe', 'johndoe@example.com', 'password123', '1234567890', 1, '2023-05-20', 'New York'),
-  (987654, 'Jane Smith', 'janesmith@example.com', 'pass456word', '9876543210', 2, '2023-05-20', 'Los Angeles');
+  (123456, 'Rikesh Maharjan', 'mrikesh648@gmail.com', '$2y$10$Qb2BiO9LC6v24CsAig7w2eeJHNfpfTViZoxg/3W0uxt797gNPd4.2', '9813441076', 1, '2023-05-20', 'Chamati, Kathmandu'),
+  (987654, 'Chandan Shakya', 'notch0andan@gmail.com', '$2y$10$hvgwO6ijaDUIbxk.m8.Z2uyrjXS4kjDI73vM1OnuXVM0mKFGoQWW.', '9861760709', 2, '2023-05-20', 'Dallu, Kathmandu');
 
 CREATE TABLE delivery_status (
   status_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -46,8 +46,8 @@ CREATE TABLE receiver_details (
   INDEX idx_name (name)
 );
 INSERT INTO receiver_details (name, phone_no) VALUES
-  ('Receiver 1', '1234567890'),
-  ('Receiver 2', '9876543210');
+  ('Prinsha Maharjan', '1234567890'),
+  ('Chandan Shakya', '9876543210');
 
 CREATE TABLE address_type (
   address_type_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -68,13 +68,13 @@ CREATE TABLE package_details (
   INDEX idx_account_id (account_id),
   INDEX idx_receiver_id (receiver_id),
   INDEX idx_delivery_status_id (delivery_status_id),
-  FOREIGN KEY (account_id) REFERENCES account_details (account_id),
-  FOREIGN KEY (receiver_id) REFERENCES receiver_details (receiver_id),
-  FOREIGN KEY (delivery_status_id) REFERENCES delivery_status (status_id)
+  FOREIGN KEY (account_id) REFERENCES account_details (account_id) ON DELETE CASCADE,
+  FOREIGN KEY (receiver_id) REFERENCES receiver_details (receiver_id) ON DELETE CASCADE,
+  FOREIGN KEY (delivery_status_id) REFERENCES delivery_status (status_id) ON DELETE CASCADE
 );
 INSERT INTO package_details (account_id, receiver_id, date_received, date_delivered, delivery_status_id) VALUES
   (1, 1, '2023-05-20', '2023-05-25', 4),
-  (2, 2, '2023-05-21', '2023-05-26', 3);
+  (1, 2, '2023-05-21', '2023-05-26', 3);
 
 CREATE TABLE address_details (
   address_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -83,11 +83,11 @@ CREATE TABLE address_details (
   address VARCHAR(255) NOT NULL,
   INDEX idx_order_code (order_code),
   INDEX idx_address_type_id (address_type_id),
-  FOREIGN KEY (order_code) REFERENCES package_details (order_code),
-  FOREIGN KEY (address_type_id) REFERENCES address_type (address_type_id)
+  FOREIGN KEY (order_code) REFERENCES package_details (order_code) ON DELETE CASCADE,
+  FOREIGN KEY (address_type_id) REFERENCES address_type (address_type_id) ON DELETE CASCADE
 );
 INSERT INTO address_details (order_code, address_type_id, address) VALUES
-  (1, 1, '123 Main St, City, Country'),
-  (1, 2, '456 Elm St, City, Country'),
-  (2, 1, '789 Oak St, City, Country'),
-  (2, 2, '987 Pine St, City, Country');
+  (1, 1, 'Chamati, Kathmandu'),
+  (1, 2, 'Samakhusi, Kathmandu'),
+  (2, 1, 'Chamati, Kathmandu'),
+  (2, 2, 'Dallu, Kathmandu');

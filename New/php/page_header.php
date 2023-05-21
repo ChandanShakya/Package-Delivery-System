@@ -23,8 +23,13 @@ session_start();
     <script src="https://kit.fontawesome.com/1f6a832ce8.js" crossorigin="anonymous"></script>
     <!-- Bootstrap css -->
     <?php if (!isset($disableBootstrap) || !$disableBootstrap): ?>
-        <link rel="stylesheet" href="modules/node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="modules/node_modules/bootstrap/dist/css/bootstrap.min.css" />
     <?php endif; ?>
     <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <?php if (!isset($disableGoogleFonts1) || !$disableGoogleFonts1): ?>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <?php endif; ?>
+    <?php if (isset($disableGoogleFonts1) || !$disableGoogleFonts1): ?>
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <?php endif; ?>

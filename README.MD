@@ -181,78 +181,6 @@ address_type
 - address_type_id (primary key)
 - address_type_name (e.g., Pickup Address, Delivery Address)
 
-```sql
-CREATE DATABASE elitelogisticsdb;
-USE elitelogisticsdb;
-CREATE TABLE account_type (
-  type_id INT PRIMARY KEY AUTO_INCREMENT,
-  type_name ENUM('user', 'admin', 'delivery rider') NOT NULL,
-  INDEX idx_type_name (type_name)
-);
-
-CREATE TABLE account_details (
-  account_id INT PRIMARY KEY AUTO_INCREMENT,
-  serial_no INT NOT NULL,
-  name VARCHAR(100) NOT NULL,
-  email VARCHAR(100) NOT NULL,
-  password VARCHAR(320) NOT NULL,
-  phone_no VARCHAR(20) NOT NULL,
-  type_id INT,
-  created_on DATE NOT NULL,
-  default_location VARCHAR(255) NOT NULL,
-  INDEX idx_name (name),
-  FOREIGN KEY (type_id) REFERENCES account_type (type_id)
-);
-
-CREATE TABLE delivery_status (
-  status_id INT PRIMARY KEY AUTO_INCREMENT,
-  status_name ENUM('Pending for approval', 'Waiting for pickup', 'In Transit', 'Delivered', 'Canceled') NOT NULL,
-  INDEX idx_status_name (status_name)
-);
-
-CREATE TABLE receiver_details (
-  receiver_id INT PRIMARY KEY AUTO_INCREMENT,
-  name VARCHAR(100) NOT NULL,
-  phone_no VARCHAR(20) NOT NULL,
-  INDEX idx_name (name)
-);
-
-CREATE TABLE address_type (
-  address_type_id INT PRIMARY KEY AUTO_INCREMENT,
-  address_type_name ENUM('Pickup Address', 'Delivery Address') NOT NULL,
-  INDEX idx_type_name (address_type_name)
-);
-
-CREATE TABLE package_details (
-  order_code INT PRIMARY KEY AUTO_INCREMENT,
-  account_id INT,
-  receiver_id INT,
-  date_received DATE,
-  date_delivered DATE,
-  delivery_status_id INT,
-  INDEX idx_account_id (account_id),
-  INDEX idx_receiver_id (receiver_id),
-  INDEX idx_delivery_status_id (delivery_status_id),
-  FOREIGN KEY (account_id) REFERENCES account_details (account_id),
-  FOREIGN KEY (receiver_id) REFERENCES receiver_details (receiver_id),
-  FOREIGN KEY (delivery_status_id) REFERENCES delivery_status (status_id)
-);
-
-CREATE TABLE address_details (
-  address_id INT PRIMARY KEY AUTO_INCREMENT,
-  order_code INT,
-  address_type_id INT,
-  address VARCHAR(255) NOT NULL,
-  INDEX idx_order_code (order_code),
-  INDEX idx_address_type_id (address_type_id),
-  FOREIGN KEY (order_code) REFERENCES package_details (order_code),
-  FOREIGN KEY (address_type_id) REFERENCES address_type (address_type_id)
-);
-
-```
-
-</details>
-
 ```mermaid
 erDiagram
   ACCOUNT_TYPE ||--o{ ACCOUNT_DETAILS : has
@@ -312,3 +240,5 @@ erDiagram
     VARCHAR(255) address
   }
 ```
+
+</details>

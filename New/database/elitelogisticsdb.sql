@@ -25,7 +25,9 @@ CREATE TABLE account_details (
 );
 INSERT INTO account_details (serial_no, name, email, password, phone_no, type_id, created_on, default_location) VALUES
   (123456, 'Rikesh Maharjan', 'mrikesh648@gmail.com', '$2y$10$Qb2BiO9LC6v24CsAig7w2eeJHNfpfTViZoxg/3W0uxt797gNPd4.2', '9813441076', 1, '2023-05-20', 'Chamati, Kathmandu'),
-  (987654, 'Chandan Shakya', 'notch0andan@gmail.com', '$2y$10$hvgwO6ijaDUIbxk.m8.Z2uyrjXS4kjDI73vM1OnuXVM0mKFGoQWW.', '9861760709', 2, '2023-05-20', 'Dallu, Kathmandu');
+  (987654, 'Chandan Shakya', 'notch0andan@gmail.com', '$2y$10$hvgwO6ijaDUIbxk.m8.Z2uyrjXS4kjDI73vM1OnuXVM0mKFGoQWW.', '9861760709', 2, '2023-05-20', 'Dallu, Kathmandu'),
+  (123457, 'Ram Bahadur', 'ram@gmail.com', '$2y$10$gYhUrB8XbkFA44jHaP2ChOQNdmtxBvpnmIUgMiQi2Qo7zLQRJ9pF.', '9843788554', 3, '2023-05-21', 'Paknajwol, Kathmandu');
+
 
 CREATE TABLE delivery_status (
   status_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -65,6 +67,7 @@ CREATE TABLE package_details (
   date_received DATE,
   date_delivered DATE,
   delivery_status_id INT,
+  description VARCHAR(255),
   INDEX idx_account_id (account_id),
   INDEX idx_receiver_id (receiver_id),
   INDEX idx_delivery_status_id (delivery_status_id),
@@ -72,9 +75,9 @@ CREATE TABLE package_details (
   FOREIGN KEY (receiver_id) REFERENCES receiver_details (receiver_id) ON DELETE CASCADE,
   FOREIGN KEY (delivery_status_id) REFERENCES delivery_status (status_id) ON DELETE CASCADE
 );
-INSERT INTO package_details (account_id, receiver_id, date_received, date_delivered, delivery_status_id) VALUES
-  (1, 1, '2023-05-20', '2023-05-25', 4),
-  (1, 2, '2023-05-21', '2023-05-26', 3);
+INSERT INTO package_details (account_id, receiver_id, date_received, date_delivered, delivery_status_id, description) VALUES
+  (1, 1, '2023-05-20', '2023-05-25', 4, 'Box of Apples'),
+  (1, 2, '2023-05-21', '2023-05-26', 3, '10 copies');
 
 CREATE TABLE address_details (
   address_id INT PRIMARY KEY AUTO_INCREMENT,

@@ -223,7 +223,7 @@ if ($userType == 1) {
 
                     <?php
                     if ($currentPage === 'admin_package_records'):
-                        include 'admin_package_records.php';
+                        include 'admin_package_records_content.php';
                     endif;
                     ?>
 

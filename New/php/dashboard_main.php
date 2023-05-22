@@ -88,7 +88,7 @@ if ($userType == 1) {
 
                 <!-- Nav Item - Registered Users -->
                 <li class="nav-item <?php echo ($currentPage === 'registered_users') ? 'active' : ''; ?>">
-                    <a class="nav-link" href="registered_users.html">
+                    <a class="nav-link" href="registered_users.php">
                         <i class="fas fa-fw fa-users"></i>
                         <span>Registered Users</span>
                     </a>
@@ -202,12 +202,8 @@ if ($userType == 1) {
                         echo '<!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                    </div>
-
-                    <!-- Content Row -->
-                    <div class="row">';
+                    </div>';
                         include 'dashboard_content.php';
-                        echo '</div>';
                     endif;
                     ?>
 
@@ -231,7 +227,11 @@ if ($userType == 1) {
 
                     <?php
                     if ($currentPage === 'registered_users'):
-                        include 'registered_users.php';
+                        echo '<!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Registered Users</h1>
+                    </div>';
+                        include 'admin_registered_users.php';
                     endif;
                     ?>
 
@@ -409,7 +409,7 @@ if ($userType == 1) {
             </div>
         </div>
     </div>
-    
+
     <div class="modal fade" id="successRequestModal" tabindex="-1" role="dialog"
         aria-labelledby="successRequestModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -464,6 +464,107 @@ if ($userType == 1) {
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="assignModal" tabindex="-1" role="dialog" aria-labelledby="assignModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="assignModalLabel">Assign Delivery Personnel for Order Code
+                        <?php echo $request['order_code']; ?>
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="php/processAssign.php" method="POST">
+                        <input type="hidden" name="order_code" id="assignOrderCode"
+                            value="<?php echo $request['order_code']; ?>">
+                        <div class="form-group">
+                            <label for="deliveryPersonnel">Select Delivery Personnel:</label>
+                            <select class="form-control" name="delivery_personnel" id="deliveryPersonnel">
+                                <?php
+                                // Query to fetch the delivery personnel
+                                $sql = "SELECT account_id, name FROM account_details WHERE type_id = 3";
+                                $stmt = $pdo->prepare($sql);
+                                $stmt->execute();
+                                $deliveryPersonnel = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                                foreach ($deliveryPersonnel as $personnel) {
+                                    echo "<option value='" . $personnel['account_id'] . "'>" . $personnel['name'] . "</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Assign</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Cancel Modal -->
+    <div class="modal fade" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="cancelModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cancelModalLabel">Cancel Pickup Request</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="php/processCancel.php" method="POST">
+                        <input type="hidden" name="order_code" id="cancelOrderCode"
+                            value="<?php echo $request['order_code']; ?>">
+                        <div class="form-group">
+                            <label for="remarks">Remarks:</label>
+                            <textarea class="form-control" name="remarks" id="remarks" rows="3"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-danger">Cancel Request</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="successAssignModal" tabindex="-1" role="dialog"
+        aria-labelledby="successAssignModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successAssignModalLabel">Update Successful</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"
+                        onclick="closeSuccessAssignModal()">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Delivery Personnel assignment has been successfully recorded.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="successCancelModal" tabindex="-1" role="dialog"
+        aria-labelledby="successCancelModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successCancelModalLabel">Update Successful</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"
+                        onclick="closeSuccessCancelModal()">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Package has been cancelled.
                 </div>
             </div>
         </div>

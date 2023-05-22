@@ -63,21 +63,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: ../error.php?error=" . urlencode($error));
         exit();
     } else {
-        // Get the current maximum serial_no value
-        $stmt = $pdo->query("SELECT MAX(serial_no) AS max_serial_no FROM account_details WHERE type_id = 1");
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        $maxSerialNo = $result['max_serial_no'];
-
-        // Increment the serial_no by 1
-        $serialNo = $maxSerialNo + 1;
-
         // Hash the password
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         // Insert new user into the database
-        $stmt = $pdo->prepare("INSERT INTO account_details (serial_no, name, email, password, phone_no, default_location,type_id,created_at) 
-                               VALUES (:serialNo, :name, :email, :password, :phone, :location,1,NOW())");
-        $stmt->bindParam(':serialNo', $serialNo);
+        $stmt = $pdo->prepare("INSERT INTO account_details (name, email, password, phone_no, default_location,type_id,created_on) 
+                               VALUES (:name, :email, :password, :phone, :location,1,NOW())");
         $stmt->bindParam(':name', $fullName);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $hashedPassword);

@@ -1,15 +1,17 @@
-
-// Function to show the success modal
 function showSuccessPasswordModal() {
     $('#successPasswordModal').modal('show');
 }
-
-// Function to show the success modal
 function showSuccessProfileModal() {
     $('#successProfileModal').modal('show');
 }
 function showSuccessRequestModal(){
     $('#successRequestModal').modal('show');
+}
+function showSuccessAssignModal(){
+    $('#successAssignModal').modal('show');
+}
+function showSuccessCancelModal(){
+    $('#successCancelModal').modal('show');
 }
 
 $(document).ready(function () {
@@ -18,6 +20,9 @@ $(document).ready(function () {
     const successPassword = urlParams.get('successPassword');
     const successProfile = urlParams.get('successProfile');
     const successRequest = urlParams.get('successRequest');
+    const successAssign = urlParams.get('successAssign');
+    const successCancel = urlParams.get('successCancel');
+
     if (successPassword === 'true') {
         showSuccessPasswordModal();
     }
@@ -26,6 +31,12 @@ $(document).ready(function () {
     }
     if (successRequest === 'true'){
         showSuccessRequestModal();
+    }
+    if (successAssign === 'true'){
+        showSuccessAssignModal();
+    }
+    if (successCancel === 'true'){
+        showSuccessCancelModal();
     }
 });
 
@@ -41,4 +52,12 @@ function closeSuccessProfileModal() {
 
 function closeSuccessRequestModal(){
     $('#successRequestModal').modal('hide');
+}
+
+function closeSuccessAssignModal(){
+    $('#successAssignModal').modal('hide');
+}
+
+function closeSuccessCancelModal(){
+    $('#successCancelModal').modal('hide');
 }

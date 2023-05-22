@@ -44,7 +44,7 @@ if (isset($_SESSION['account_id'])) {
             $stmt->execute();
 
             // Redirect to the success page or the desired page after updating the password
-            header("Location: ../dashboard.php?success=true");
+            header("Location: ../dashboard.php?successPassword=true");
             exit();
         } else {
             $error = "Invalid old password";

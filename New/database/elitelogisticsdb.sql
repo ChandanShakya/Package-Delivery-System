@@ -64,20 +64,23 @@ CREATE TABLE package_details (
   order_code INT PRIMARY KEY AUTO_INCREMENT,
   account_id INT,
   receiver_id INT,
+  delivery_rider_id INT,
   date_received DATE,
   date_delivered DATE,
   delivery_status_id INT,
   description VARCHAR(255),
   INDEX idx_account_id (account_id),
   INDEX idx_receiver_id (receiver_id),
+  INDEX idx_delivery_rider_id (delivery_rider_id),
   INDEX idx_delivery_status_id (delivery_status_id),
   FOREIGN KEY (account_id) REFERENCES account_details (account_id) ON DELETE CASCADE,
   FOREIGN KEY (receiver_id) REFERENCES receiver_details (receiver_id) ON DELETE CASCADE,
+  FOREIGN KEY (delivery_rider_id) REFERENCES account_details (account_id) ON DELETE CASCADE,
   FOREIGN KEY (delivery_status_id) REFERENCES delivery_status (status_id) ON DELETE CASCADE
 );
-INSERT INTO package_details (account_id, receiver_id, date_received, date_delivered, delivery_status_id, description) VALUES
-  (1, 1, '2023-05-20', '2023-05-25', 4, 'Box of Apples'),
-  (1, 2, '2023-05-21', '2023-05-26', 3, '10 copies');
+INSERT INTO package_details (account_id, receiver_id, delivery_rider_id, date_received, date_delivered, delivery_status_id, description) VALUES
+  (1, 1, 3,'2023-05-20', '2023-05-25', 4, 'Box of Apples'),
+  (1, 2, 3,'2023-05-21', '2023-05-26', 3, '10 copies');
 
 CREATE TABLE address_details (
   address_id INT PRIMARY KEY AUTO_INCREMENT,

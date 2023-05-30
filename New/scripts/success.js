@@ -13,6 +13,24 @@ function showSuccessAssignModal(){
 function showSuccessCancelModal(){
     $('#successCancelModal').modal('show');
 }
+function showSuccessRegisterModal(){
+    $('#successRegisterModal').modal('show');
+}
+function showSuccessRegisterDrModal(){
+    $('#successRegisterDrModal').modal('show');
+}
+function showSuccessDeleteModal(){
+    $('#successDeleteModal').modal('show');
+}
+function showSuccessDeleteDrModal(){
+    $('#successDeleteDrModal').modal('show');
+}
+function showSuccessAdminUpdateModal(){
+    $('#successAdminUpdateModal').modal('show');
+}
+function showSuccessAdminUpdateDrModal(){
+    $('#successAdminUpdateDrModal').modal('show');
+}
 
 $(document).ready(function () {
     // Check if the URL contains the success parameter
@@ -22,6 +40,13 @@ $(document).ready(function () {
     const successRequest = urlParams.get('successRequest');
     const successAssign = urlParams.get('successAssign');
     const successCancel = urlParams.get('successCancel');
+    const successRegister = urlParams.get('successRegister');
+    const successRegisterDr = urlParams.get('successRegisterDr');
+    const successDelete = urlParams.get('successDelete');
+    const successDeleteDr = urlParams.get('successDeleteDr');
+    const successAdminUpdate = urlParams.get('successAdminUpdate');
+    const successAdminUpdateDr = urlParams.get('successAdminUpdateDr');
+
 
     if (successPassword === 'true') {
         showSuccessPasswordModal();
@@ -37,6 +62,25 @@ $(document).ready(function () {
     }
     if (successCancel === 'true'){
         showSuccessCancelModal();
+    }
+    if (successRegister === 'true'){
+        showSuccessRegisterModal();
+    }
+    if (successRegisterDr === 'true'){
+        showSuccessRegisterDrModal();
+    }
+
+    if (successDelete === 'true'){
+        showSuccessDeleteModal();
+    }
+    if (successDeleteDr === 'true'){
+        showSuccessDeleteDrModal();
+    }
+    if (successAdminUpdate === 'true'){
+        showSuccessAdminUpdateModal();
+    }
+    if (successAdminUpdateDr === 'true'){
+        showSuccessAdminUpdateDrModal();
     }
 });
 
@@ -60,4 +104,25 @@ function closeSuccessAssignModal(){
 
 function closeSuccessCancelModal(){
     $('#successCancelModal').modal('hide');
+}
+
+function closeSuccessRegisterModal(){
+    $('#successRegisterModal').modal('hide');
+}
+
+function closeSuccessRegisterDrModal(){
+    $('#successRegisterDrModal').modal('hide');
+}
+
+function closeSuccessDeleteModal(){
+    $('#successDeleteModal').modal('hide');
+}
+function closeSuccessDeleteDrModal(){
+    $('#successDeleteDrModal').modal('hide');
+}
+function closeSuccessAdminUpdateModal(){
+    $('#successAdminUpdateModal').modal('hide');
+}
+function closeSuccessAdminUpdateDrModal(){
+    $('#successAdminUpdateDrModal').modal('hide');
 }

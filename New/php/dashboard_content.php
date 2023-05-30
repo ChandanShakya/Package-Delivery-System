@@ -162,23 +162,23 @@
                         $pickupRequests = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                         foreach ($pickupRequests as $request) {
-                            echo "<tr>";
-                            echo "<td>" . $request['order_code'] . "</td>";
-                            echo "<td>" . $request['created_on'] . "</td>";
-                            echo "<td>" . $request['sender_id'] . "</td>";
-                            echo "<td>" . $request['sender_name'] . "</td>";
-                            echo "<td>" . $request['sender_phone'] . "</td>";
-                            echo "<td>" . $request['receiver_name'] . "</td>";
-                            echo "<td>" . $request['receiver_address'] . "</td>";
-                            echo "<td>" . $request['pickup_address'] . "</td>";
-                            echo "<td>" . $request['receiver_phone'] . "</td>";
-                            echo "<td>" . $request['description'] . "</td>";
-                            echo "<td>" . $request['delivery_status'] . "</td>";
-                            echo "<td>
-                                    <a href='#' class='btn btn-primary' data-toggle='modal' data-target='#assignModal'>Assign</a>
-                                    <a href='#' class='btn btn-danger' data-toggle='modal' data-target='#cancelModal'>Cancel</a>
-                                  </td>";
-                            echo "</tr>";
+                            echo '<tr>';
+                            echo '<td>' . $request['order_code'] . '</td>';
+                            echo '<td>' . $request['created_on'] . '</td>';
+                            echo '<td>' . $request['sender_id'] . '</td>';
+                            echo '<td>' . $request['sender_name'] . '</td>';
+                            echo '<td>' . $request['sender_phone'] . '</td>';
+                            echo '<td>' . $request['receiver_name'] . '</td>';
+                            echo '<td>' . $request['receiver_address'] . '</td>';
+                            echo '<td>' . $request['pickup_address'] . '</td>';
+                            echo '<td>' . $request['receiver_phone'] . '</td>';
+                            echo '<td>' . $request['description'] . '</td>';
+                            echo '<td>' . $request['delivery_status'] . '</td>';
+                            echo '<td>
+                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#assignModal">Assign</a>
+                                    <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#cancelModal">Cancel</a>
+                                  </td>';
+                            echo '</tr>';
                         }
                         ?>
                     </tbody>
@@ -186,4 +186,5 @@
             </div>
         </div>
     </div>
+
 <?php endif; ?>

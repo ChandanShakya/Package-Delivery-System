@@ -50,14 +50,14 @@ if ($userType == 1) {
             <li class="sidebar-divider">
                 <hr>
             </li>
-            <?php if ($userType != 3): ?>
+            <?php if ($userType != 3) : ?>
                 <!-- Heading -->
                 <li class="sidebar-heading">
                     Packages
                 </li>
 
                 <!-- Nav Item - Package Records -->
-                <?php if ($userType == 1): ?>
+                <?php if ($userType == 1) : ?>
                     <li class="nav-item <?php echo ($currentPage === 'user_package_records') ? 'active' : ''; ?>">
                         <a class="nav-link" href="user_package_records.php">
                             <i class="fas fa-fw fa-table"></i>
@@ -66,7 +66,7 @@ if ($userType == 1) {
 
                     </li>
                 <?php endif; ?>
-                <?php if ($userType == 2): ?>
+                <?php if ($userType == 2) : ?>
                     <li class="nav-item <?php echo ($currentPage === 'admin_package_records') ? 'active' : ''; ?>">
                         <a class="nav-link" href="admin_package_records.php">
                             <i class="fas fa-fw fa-table"></i>
@@ -75,7 +75,7 @@ if ($userType == 1) {
                     </li>
                 <?php endif; ?>
             <?php endif; ?>
-            <?php if ($userType == 2): ?>
+            <?php if ($userType == 2) : ?>
                 <!-- Divider -->
                 <li class="sidebar-divider">
                     <hr>
@@ -96,30 +96,37 @@ if ($userType == 1) {
 
                 <!-- Nav Item - Delivery Personnel -->
                 <li class="nav-item <?php echo ($currentPage === 'delivery_personnel') ? 'active' : ''; ?>">
-                    <a class="nav-link" href="delivery_personnel.html">
+                    <a class="nav-link" href="delivery_personnel.php">
                         <i class="fas fa-fw fa-truck"></i>
                         <span>Delivery Personnel</span>
                     </a>
                 </li>
             <?php endif; ?>
 
-            <?php if ($userType == 3): ?>
+            <?php if ($userType == 3) : ?>
                 <!-- Heading -->
                 <li class="sidebar-heading">
                     Packages
                 </li>
 
-                <!-- Nav Item - Pending -->
-                <li class="nav-item <?php echo ($currentPage === 'delivery_personnel_pending') ? 'active' : ''; ?>">
-                    <a class="nav-link" href="pending.html">
+                <!-- Nav Item - Waiting for Pickup -->
+                <li class="nav-item <?php echo ($currentPage === 'delivery_personnel_pickup') ? 'active' : ''; ?>">
+                    <a class="nav-link" href="delivery_personnel_pickup.php">
                         <i class="fas fa-fw fa-clock"></i>
-                        <span>Pending</span>
+                        <span>Waiting for Pickup</span>
+                    </a>
+                </li>
+                <!-- Nav Item - In Transit -->
+                <li class="nav-item <?php echo ($currentPage === 'delivery_personnel_transit') ? 'active' : ''; ?>">
+                    <a class="nav-link" href="delivery_personnel_transit.php">
+                        <i class="fas fa-fw fa-clock"></i>
+                        <span>In Transit</span>
                     </a>
                 </li>
 
                 <!-- Nav Item - Delivered -->
                 <li class="nav-item  <?php echo ($currentPage === 'delivery_personnel_delivered') ? 'active' : ''; ?>">
-                    <a class="nav-link" href="delivered.html">
+                    <a class="nav-link" href="delivery_personnel_delivered.php">
                         <i class="fas fa-fw fa-check"></i>
                         <span>Delivered</span>
                     </a>
@@ -161,16 +168,14 @@ if ($userType == 1) {
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                                     <?php echo $user['name']; ?>
                                 </span>
                                 <i class="fas fa-user-circle fa-2x text-gray-300"></i>
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#settingModal">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Settings
@@ -198,7 +203,7 @@ if ($userType == 1) {
                     <!-- If $currentPage is dashboard show the content of dashboard_content.php -->
 
                     <?php
-                    if ($currentPage === 'dashboard'):
+                    if ($currentPage === 'dashboard') :
                         echo '<!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
@@ -207,26 +212,26 @@ if ($userType == 1) {
                     endif;
                     ?>
 
-                    <!-- If $currentPage is user_package_records show the content of user_package_records.php -->
+                    <!-- If $currentPage is user_package_records show the content of user_package_records_content.php -->
 
                     <?php
-                    if ($currentPage === 'user_package_records'):
+                    if ($currentPage === 'user_package_records') :
                         include 'user_package_records_content.php';
                     endif;
                     ?>
 
-                    <!-- If $currentPage is admin_package_records show the content of admin_package_records.php -->
+                    <!-- If $currentPage is admin_package_records show the content of admin_package_records_content.php -->
 
                     <?php
-                    if ($currentPage === 'admin_package_records'):
+                    if ($currentPage === 'admin_package_records') :
                         include 'admin_package_records_content.php';
                     endif;
                     ?>
 
-                    <!-- If $currentPage is registered_users show the content of registered_users.php -->
+                    <!-- If $currentPage is registered_users show the content of admin_registered_users.php -->
 
                     <?php
-                    if ($currentPage === 'registered_users'):
+                    if ($currentPage === 'registered_users') :
                         echo '<!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Registered Users</h1>
@@ -235,27 +240,39 @@ if ($userType == 1) {
                     endif;
                     ?>
 
-                    <!-- If $currentPage is delivery_personnel show the content of delivery_personnel.php -->
+                    <!-- If $currentPage is delivery_personnel show the content of admin_delivery_personnel.php -->
 
                     <?php
-                    if ($currentPage === 'delivery_personnel'):
-                        include 'delivery_personnel.php';
+                    if ($currentPage === 'delivery_personnel') :
+                        echo '<!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Delivery Riders</h1>
+                    </div>';
+                        include 'admin_delivery_personnel.php';
                     endif;
                     ?>
 
-                    <!-- If $currentPage is delivery_personnel_pending show the content of delivery_personnel_pending.php -->
+                    <!-- If $currentPage is delivery_personnel_pickup show the content of delivery_personnel_pickup_content.php -->
 
                     <?php
-                    if ($currentPage === 'delivery_personnel_pending'):
-                        include 'delivery_personnel_pending.php';
+                    if ($currentPage === 'delivery_personnel_pickup') :
+                        include 'delivery_personnel_pickup_content.php';
                     endif;
                     ?>
 
-                    <!-- If $currentPage is delivery_personnel_delivered show the content of delivery_personnel_delivered.php -->
+                    <!-- If $currentPage is delivery_personnel_transit show the content of delivery_personnel_transit_content.php -->
 
                     <?php
-                    if ($currentPage === 'delivery_personnel_delivered'):
-                        include 'delivery_personnel_delivered.php';
+                    if ($currentPage === 'delivery_personnel_transit') :
+                        include 'delivery_personnel_transit_content.php';
+                    endif;
+                    ?>
+
+                    <!-- If $currentPage is delivery_personnel_delivered show the content of delivery_personnel_delivered_content.php -->
+
+                    <?php
+                    if ($currentPage === 'delivery_personnel_delivered') :
+                        include 'delivery_personnel_delivered_content.php';
                     endif;
                     ?>
 
@@ -289,283 +306,3 @@ if ($userType == 1) {
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="php/logout.php">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Setting Modal -->
-    <div class="modal fade" id="settingModal" tabindex="-1" role="dialog" aria-labelledby="settingModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="settingModalLabel">Settings</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Profile Setting Form -->
-                    <form action="php/updateProfile.php" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name"
-                                value="<?php echo $user['name']; ?>" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email"
-                                placeholder="Enter your email" value="<?php echo $user['email']; ?>" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone number</label>
-                            <input type="tel" class="form-control" id="phone" name="phone"
-                                placeholder="Enter your phone number" value="<?php echo $user['phone_no']; ?>" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="location">Location</label>
-                            <input type="text" class="form-control" id="location" name="location"
-                                placeholder="Enter your location" value="<?php echo $user['default_location']; ?>"
-                                required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Update</button>
-
-                    </form>
-                    <hr>
-                    <form action="php/updatePassword.php" method="POST">
-
-                        <!-- Password Setting Form -->
-                        <div class="form-group">
-                            <label for="oldPassword">Old Password</label>
-                            <input type="password" class="form-control" id="oldPassword" name="oldPassword"
-                                placeholder="Enter your old password" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="newPassword">New Password</label>
-                            <input type="password" class="form-control" id="newPassword" name="newPassword"
-                                placeholder="Enter your new password" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="confirmPassword">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
-                                placeholder="Confirm your new password" required>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary" onsubmit="validateForm();">Update</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Add this HTML code after the form in dashboard.php -->
-    <div class="modal fade" id="successPasswordModal" tabindex="-1" role="dialog"
-        aria-labelledby="successPasswordModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="successPasswordModalLabel">Update Successful</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"
-                        onclick="closeSuccessPasswordModal()">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Your password has been successfully updated.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="successProfileModal" tabindex="-1" role="dialog"
-        aria-labelledby="successProfileModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="successProfileModalLabel">Update Successful</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"
-                        onclick="closeSuccessProfileModal()">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Your Profile has been successfully updated.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="successRequestModal" tabindex="-1" role="dialog"
-        aria-labelledby="successRequestModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="successRequestModalLabel">Update Successful</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"
-                        onclick="closeSuccessRequestModal()">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Your Request has been successfully recorded.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="requestPickupModal" tabindex="-1" role="dialog"
-        aria-labelledby="requestPickupModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="requestPickupModalLabel">Request Pickup</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="php/processRequestPickup.php" method="POST">
-                        <div class="form-group">
-                            <label for="pickupAddress">Pickup Address</label>
-                            <input type="text" class="form-control" id="pickupAddress" name="pickupAddress"
-                                value="<?php echo $user['default_location']; ?>" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="receiverName">Receiver's Name</label>
-                            <input type="text" class="form-control" id="receiverName" name="receiverName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="deliveryAddress">Delivery Address</label>
-                            <input type="text" class="form-control" id="deliveryAddress" name="deliveryAddress"
-                                required>
-                        </div>
-                        <div class="form-group">
-                            <label for="receiverPhone">Receiver's Phone Number</label>
-                            <input type="text" class="form-control" id="receiverPhone" name="receiverPhone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="assignModal" tabindex="-1" role="dialog" aria-labelledby="assignModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="assignModalLabel">Assign Delivery Personnel for Order Code
-                        <?php echo $request['order_code']; ?>
-                    </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="php/processAssign.php" method="POST">
-                        <input type="hidden" name="order_code" id="assignOrderCode"
-                            value="<?php echo $request['order_code']; ?>">
-                        <div class="form-group">
-                            <label for="deliveryPersonnel">Select Delivery Personnel:</label>
-                            <select class="form-control" name="delivery_personnel" id="deliveryPersonnel">
-                                <?php
-                                // Query to fetch the delivery personnel
-                                $sql = "SELECT account_id, name FROM account_details WHERE type_id = 3";
-                                $stmt = $pdo->prepare($sql);
-                                $stmt->execute();
-                                $deliveryPersonnel = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                                foreach ($deliveryPersonnel as $personnel) {
-                                    echo "<option value='" . $personnel['account_id'] . "'>" . $personnel['name'] . "</option>";
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Assign</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Cancel Modal -->
-    <div class="modal fade" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="cancelModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="cancelModalLabel">Cancel Pickup Request</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="php/processCancel.php" method="POST">
-                        <input type="hidden" name="order_code" id="cancelOrderCode"
-                            value="<?php echo $request['order_code']; ?>">
-                        <div class="form-group">
-                            <label for="remarks">Remarks:</label>
-                            <textarea class="form-control" name="remarks" id="remarks" rows="3"></textarea>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-danger">Cancel Request</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="successAssignModal" tabindex="-1" role="dialog"
-        aria-labelledby="successAssignModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="successAssignModalLabel">Update Successful</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"
-                        onclick="closeSuccessAssignModal()">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Delivery Personnel assignment has been successfully recorded.
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="successCancelModal" tabindex="-1" role="dialog"
-        aria-labelledby="successCancelModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="successCancelModalLabel">Update Successful</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"
-                        onclick="closeSuccessCancelModal()">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Package has been cancelled.
-                </div>
-            </div>
-        </div>
-    </div>

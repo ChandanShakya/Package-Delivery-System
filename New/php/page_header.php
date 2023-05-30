@@ -21,6 +21,8 @@ session_start();
     <?php endif; ?>
     <!-- Font Awesome icons (free version)-->
     <script src="https://kit.fontawesome.com/1f6a832ce8.js" crossorigin="anonymous"></script>
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
     <!-- Bootstrap css -->
     <?php if (!isset($disableBootstrap) || !$disableBootstrap): ?>
         <link rel="stylesheet" href="modules/node_modules/bootstrap/dist/css/bootstrap.min.css" />

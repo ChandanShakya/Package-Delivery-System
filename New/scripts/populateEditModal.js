@@ -10,6 +10,16 @@ function populateEditModal(accountId, name, defaultLocation, phone, email) {
 function populateDeleteModal(accountId) {
     $('#deleteAccountId').val(accountId);
 }
+
+function populateAssignModal(orderCode) {
+    $('#assignOrderCodeHead').text(orderCode);
+    $('#assignOrderCode').val(orderCode);
+}
+
+function populateCancelModal(orderCode) {
+    $('#cancelOrderCode').val(orderCode);
+}
+
 // Event listener for edit button click
 $(document).on('click', '.edit-btn', function () {
     // Get the data attributes of the clicked edit button
@@ -28,6 +38,22 @@ $(document).on('click', '.delete-btn', function () {
     populateDeleteModal(accountId);
 });
 
+$(document).on('click', '.assign-btn', function () {
+    // Get the order code from the clicked assign button
+    var orderCode = $(this).data('order-code');
+
+    // Populate the assign modal with order code
+    populateAssignModal(orderCode);
+});
+
+// Event listener for "Cancel" button click
+$(document).on('click', '.cancel-btn', function () {
+    // Get the order code from the clicked cancel button
+    var orderCode = $(this).data('order-code');
+
+    // Populate the cancel modal with order code
+    populateCancelModal(orderCode);
+});
 // Clear the edit modal fields when it is closed
 $('#editUserModal').on('hidden.bs.modal', function () {
     $('#editAccountId').val('');
@@ -38,4 +64,15 @@ $('#editUserModal').on('hidden.bs.modal', function () {
 });
 $('#deleteUserModal').on('hidden.bs.modal', function () {
     $('#deleteAccountId').val('');
-});  
+});
+
+$('#assignModal').on('hidden.bs.modal', function () {
+    $('#assignOrderCodeHead').text('');
+    $('#assignOrderCode').val('');
+
+});
+
+// Clear the cancel modal fields when it is closed
+$('#cancelModal').on('hidden.bs.modal', function () {
+    $('#cancelOrderCode').val('');
+});

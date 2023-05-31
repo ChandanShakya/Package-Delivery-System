@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS elitelogisticsdb;
 CREATE DATABASE elitelogisticsdb;
 USE elitelogisticsdb;
 CREATE TABLE account_type (

@@ -81,8 +81,8 @@ CREATE TABLE package_details (
   FOREIGN KEY (delivery_status_id) REFERENCES delivery_status (status_id) ON DELETE CASCADE
 );
 INSERT INTO package_details (account_id, receiver_id, delivery_rider_id, date_received, date_delivered, delivery_status_id, description, created_on, date_assigned) VALUES
-  (1, 1, 3,'2023-05-20 11:13:07', '2023-05-21 11:30:04', 4, 'Box of Apples','2023-05-19 11:03:05'),
-  (1, 2, 3,'2023-05-21 09:12:30', '2023-05-22 10:31:22', 4, '10 copies','2023-05-19 12:03:01');
+  (1, 1, 3,'2023-05-20 11:13:07', '2023-05-21 11:30:04', 2, 'Box of Apples','2023-05-19 11:03:05',NULL),
+  (1, 2, 3,'2023-05-21 09:12:30', '2023-05-22 10:31:22', 2, '10 copies','2023-05-19 12:03:01',NULL);
 
 CREATE TABLE address_details (
   address_id INT PRIMARY KEY AUTO_INCREMENT,

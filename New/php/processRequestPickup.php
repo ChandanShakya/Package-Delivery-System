@@ -26,7 +26,7 @@ try {
     $stmt->bindParam(':receiver_id', $receiverId, PDO::PARAM_INT); // Replace $receiverId with the appropriate value
     $stmt->bindValue(':delivery_status_id', 1, PDO::PARAM_INT); // Assuming 1 represents the status 'Pending for approval'
     $stmt->bindParam(':description', $description, PDO::PARAM_STR);
-    $stmt->bindValue(':created_on', date('Y-m-d'));
+    $stmt->bindValue(':created_on', NOW());
     $stmt->execute();
     
     // Insert the pickup address into the address_details table

@@ -1,39 +1,81 @@
+// Function to show the success password modal and clear the URL parameter
 function showSuccessPasswordModal() {
     $('#successPasswordModal').modal('show');
-}
-function showSuccessProfileModal() {
-    $('#successProfileModal').modal('show');
-}
-function showSuccessRequestModal(){
-    $('#successRequestModal').modal('show');
-}
-function showSuccessAssignModal(){
-    $('#successAssignModal').modal('show');
-}
-function showSuccessCancelModal(){
-    $('#successCancelModal').modal('show');
-}
-function showSuccessRegisterModal(){
-    $('#successRegisterModal').modal('show');
-}
-function showSuccessRegisterDrModal(){
-    $('#successRegisterDrModal').modal('show');
-}
-function showSuccessDeleteModal(){
-    $('#successDeleteModal').modal('show');
-}
-function showSuccessDeleteDrModal(){
-    $('#successDeleteDrModal').modal('show');
-}
-function showSuccessAdminUpdateModal(){
-    $('#successAdminUpdateModal').modal('show');
-}
-function showSuccessAdminUpdateDrModal(){
-    $('#successAdminUpdateDrModal').modal('show');
+    clearUrlParameter('successPassword');
 }
 
+// Function to show the success profile modal and clear the URL parameter
+function showSuccessProfileModal() {
+    $('#successProfileModal').modal('show');
+    clearUrlParameter('successProfile');
+}
+
+// Function to show the success request modal and clear the URL parameter
+function showSuccessRequestModal(){
+    $('#successRequestModal').modal('show');
+    clearUrlParameter('successRequest');
+}
+
+// Function to show the success assign modal and clear the URL parameter
+function showSuccessAssignModal(){
+    $('#successAssignModal').modal('show');
+    clearUrlParameter('successAssign');
+}
+
+// Function to show the success cancel modal and clear the URL parameter
+function showSuccessCancelModal(){
+    $('#successCancelModal').modal('show');
+    clearUrlParameter('successCancel');
+}
+
+// Function to show the success register modal and clear the URL parameter
+function showSuccessRegisterModal(){
+    $('#successRegisterModal').modal('show');
+    clearUrlParameter('successRegister');
+}
+
+// Function to show the success register delivery rider modal and clear the URL parameter
+function showSuccessRegisterDrModal(){
+    $('#successRegisterDrModal').modal('show');
+    clearUrlParameter('successRegisterDr');
+}
+
+// Function to show the success delete modal and clear the URL parameter
+function showSuccessDeleteModal(){
+    $('#successDeleteModal').modal('show');
+    clearUrlParameter('successDelete');
+}
+
+// Function to show the success delete delivery rider modal and clear the URL parameter
+function showSuccessDeleteDrModal(){
+    $('#successDeleteDrModal').modal('show');
+    clearUrlParameter('successDeleteDr');
+}
+
+// Function to show the success admin update modal and clear the URL parameter
+function showSuccessAdminUpdateModal(){
+    $('#successAdminUpdateModal').modal('show');
+    clearUrlParameter('successAdminUpdate');
+}
+
+// Function to show the success admin update delivery rider modal and clear the URL parameter
+function showSuccessAdminUpdateDrModal(){
+    $('#successAdminUpdateDrModal').modal('show');
+    clearUrlParameter('successAdminUpdateDr');
+}
+
+// Function to clear the URL parameter
+// Function to clear the URL parameter
+function clearUrlParameter(parameter) {
+    const url = new URL(window.location.href);
+    url.searchParams.delete(parameter);
+    const newUrl = url.href.split('?')[0]; // Remove any remaining query parameters
+    window.history.replaceState({}, document.title, newUrl);
+}
+
+
 $(document).ready(function () {
-    // Check if the URL contains the success parameter
+    // Check if the URL contains the success parameter and display the respective modals
     const urlParams = new URLSearchParams(window.location.search);
     const successPassword = urlParams.get('successPassword');
     const successProfile = urlParams.get('successProfile');
@@ -46,7 +88,6 @@ $(document).ready(function () {
     const successDeleteDr = urlParams.get('successDeleteDr');
     const successAdminUpdate = urlParams.get('successAdminUpdate');
     const successAdminUpdateDr = urlParams.get('successAdminUpdateDr');
-
 
     if (successPassword === 'true') {
         showSuccessPasswordModal();
@@ -69,7 +110,6 @@ $(document).ready(function () {
     if (successRegisterDr === 'true'){
         showSuccessRegisterDrModal();
     }
-
     if (successDelete === 'true'){
         showSuccessDeleteModal();
     }
@@ -84,8 +124,7 @@ $(document).ready(function () {
     }
 });
 
-// on click of close button on success modal
-
+// On click of close button on success modal, hide the modal
 function closeSuccessPasswordModal() {
     $('#successPasswordModal').modal('hide');
 }
@@ -117,12 +156,15 @@ function closeSuccessRegisterDrModal(){
 function closeSuccessDeleteModal(){
     $('#successDeleteModal').modal('hide');
 }
+
 function closeSuccessDeleteDrModal(){
     $('#successDeleteDrModal').modal('hide');
 }
+
 function closeSuccessAdminUpdateModal(){
     $('#successAdminUpdateModal').modal('hide');
 }
+
 function closeSuccessAdminUpdateDrModal(){
     $('#successAdminUpdateDrModal').modal('hide');
 }

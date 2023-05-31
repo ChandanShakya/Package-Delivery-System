@@ -31,20 +31,20 @@
                     $stmt->execute();
                     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                    foreach ($users as $user) {
+                    foreach ($users as $usera) {
                         echo '<tr>';
-                        echo '<td>' . $user['account_id'] . '</td>';
-                        echo '<td>' . $user['name'] . '</td>';
-                        echo '<td>' . $user['default_location'] . '</td>';
-                        echo '<td>' . $user['phone_no'] . '</td>';
-                        echo '<td>' . $user['email'] . '</td>';
+                        echo '<td>' . $usera['account_id'] . '</td>';
+                        echo '<td>' . $usera['name'] . '</td>';
+                        echo '<td>' . $usera['default_location'] . '</td>';
+                        echo '<td>' . $usera['phone_no'] . '</td>';
+                        echo '<td>' . $usera['email'] . '</td>';
                         echo '<td>
                         <button class="btn btn-primary btn-sm edit-btn" data-toggle="modal" data-target="#editUserModal"
-                            data-account-id="' . $user['account_id'] . '" data-name="' . $user['name'] . '"
-                            data-default-location="' . $user['default_location'] . '" data-phone="' . $user['phone_no'] . '"
-                            data-email="' . $user['email'] . '">Edit</button>
+                            data-account-id="' . $usera['account_id'] . '" data-name="' . $usera['name'] . '"
+                            data-default-location="' . $usera['default_location'] . '" data-phone="' . $usera['phone_no'] . '"
+                            data-email="' . $usera['email'] . '">Edit</button>
                         <button class="btn btn-danger btn-sm delete-btn" data-toggle="modal" data-target="#deleteUserModal"
-                            data-account-id="' . $user['account_id'] . '">Delete</button>
+                            data-account-id="' . $usera['account_id'] . '">Delete</button>
                         </td>';
                         echo '</tr>';
                     }

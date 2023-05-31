@@ -23,10 +23,11 @@ if (isset($_SESSION['account_id'])) {
         // Redirect to the success page or the desired page after updating the profile
         if (basename($_SERVER['HTTP_REFERER']) == "registered_users.php") {
         header("Location: ../registered_users.php?successAdminUpdate=true");
+        exit();
         }elseif (basename($_SERVER['HTTP_REFERER']) == "delivery_personnel.php") {
         header("Location: ../delivery_personnel.php?successAdminUpdateDr=true");
-        }
         exit();
+        }
     }
 } else {
     // User is not logged in, redirect to the login page

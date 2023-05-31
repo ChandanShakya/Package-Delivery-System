@@ -256,6 +256,10 @@ if ($userType == 1) {
 
                     <?php
                     if ($currentPage === 'delivery_personnel_pickup') :
+                        echo '<!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Packages To Be Picked Up</h1>
+                    </div>';
                         include 'delivery_personnel_pickup_content.php';
                     endif;
                     ?>
@@ -264,6 +268,10 @@ if ($userType == 1) {
 
                     <?php
                     if ($currentPage === 'delivery_personnel_transit') :
+                        echo '<!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Packages in Transit</h1>
+                    </div>';
                         include 'delivery_personnel_transit_content.php';
                     endif;
                     ?>
@@ -272,6 +280,10 @@ if ($userType == 1) {
 
                     <?php
                     if ($currentPage === 'delivery_personnel_delivered') :
+                        echo '<!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Delivered Packages</h1>
+                    </div>';
                         include 'delivery_personnel_delivered_content.php';
                     endif;
                     ?>

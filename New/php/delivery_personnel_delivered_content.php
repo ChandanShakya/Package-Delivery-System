@@ -54,7 +54,7 @@
                             WHERE
                                 delivery_rider_id = :accountId
                                 AND
-                                delivery_status_id = 3";
+                                delivery_status_id = 4";
                     $stmt = $pdo->prepare($sql);
                     $stmt->bindParam(':accountId', $accountId);
                     $stmt->execute();
@@ -65,8 +65,8 @@
                         echo '<tr>';
                         echo '<td>' . $package['order_code'] . '</td>';
                         echo '<td>' . $package['created_on'] . '</td>';
-                        echo '<td>' . $package['date_received'] . '</td>';
                         echo '<td>' . $package['date_assigned'] . '</td>';
+                        echo '<td>' . $package['date_received'] . '</td>';
                         echo '<td>' . $package['date_delivered'] . '</td>';
                         echo '<td>' . $package['sender_id'] . '</td>';
                         echo '<td>' . $package['sender_name'] . '</td>';

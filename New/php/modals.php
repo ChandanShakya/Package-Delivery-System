@@ -161,8 +161,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="assignModalLabel">Assign Delivery Personnel for Order Code
-                    <?php echo $request['order_code']; ?>
+                <h5 class="modal-title" id="assignModalLabel">Assign Delivery Personnel for Order Code <span id="assignOrderCodeHead"></span>
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -170,7 +169,7 @@
             </div>
             <div class="modal-body">
                 <form action="php/processAssign.php" method="POST">
-                    <input type="hidden" name="order_code" id="assignOrderCode" value="<?php echo $request['order_code']; ?>">
+                    <input type="hidden" name="order_code" id="assignOrderCode">
                     <div class="form-group">
                         <label for="deliveryPersonnel">Select Delivery Personnel:</label>
                         <select class="form-control" name="delivery_personnel" id="deliveryPersonnel">
@@ -186,6 +185,10 @@
                             }
                             ?>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="assignRemarks">Remarks:</label>
+                        <textarea class="form-control" name="assign_remarks" id="assignRemarks" rows="3"></textarea>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Assign</button>
@@ -207,7 +210,7 @@
             </div>
             <div class="modal-body">
                 <form action="php/processCancel.php" method="POST">
-                    <input type="hidden" name="order_code" id="cancelOrderCode" value="<?php echo $request['order_code']; ?>">
+                    <input type="hidden" name="order_code" id="cancelOrderCode">
                     <div class="form-group">
                         <label for="remarks">Remarks:</label>
                         <textarea class="form-control" name="remarks" id="remarks" rows="3"></textarea>

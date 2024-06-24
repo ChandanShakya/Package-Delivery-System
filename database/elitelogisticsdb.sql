@@ -24,9 +24,9 @@ CREATE TABLE account_details (
   FOREIGN KEY (type_id) REFERENCES account_type (type_id) ON DELETE CASCADE
 );
 INSERT INTO account_details (name, email, password, phone_no, type_id, created_on, default_location) VALUES
-  ('Rikesh Maharjan', 'mrikesh648@gmail.com', '$2y$10$Qb2BiO9LC6v24CsAig7w2eeJHNfpfTViZoxg/3W0uxt797gNPd4.2', '9813441076', 1, '2023-05-20', 'Chamati, Kathmandu'),
-  ('Chandan Shakya', 'notch0andan@gmail.com', '$2y$10$hvgwO6ijaDUIbxk.m8.Z2uyrjXS4kjDI73vM1OnuXVM0mKFGoQWW.', '9861760709', 2, '2023-05-20', 'Dallu, Kathmandu'),
-  ('Ram Bahadur', 'ram@gmail.com', '$2y$10$gYhUrB8XbkFA44jHaP2ChOQNdmtxBvpnmIUgMiQi2Qo7zLQRJ9pF.', '9843788554', 3, '2023-05-21', 'Paknajwol, Kathmandu');
+  ('Nischal Basnet', 'nischal@gmail.com', '$2y$10$ypeLj6F7P2Da4WuoSGLCS.jZNbDyPxMRuf/bdWQ4qgWMkSjJZuYHG', '9813441076', 1, '2023-05-20', 'Chamati, Kathmandu'),
+  ('Sagun Ghimire', 'sagun@gmail.com', '$2y$10$ypeLj6F7P2Da4WuoSGLCS.jZNbDyPxMRuf/bdWQ4qgWMkSjJZuYHG', '9861760709', 2, '2023-05-20', 'Dallu, Kathmandu'),
+  ('Ram Bahadur', 'ram@gmail.com', '$2y$10$ypeLj6F7P2Da4WuoSGLCS.jZNbDyPxMRuf/bdWQ4qgWMkSjJZuYHG', '9843788554', 3, '2023-05-21', 'Paknajwol, Kathmandu');
 
 
 CREATE TABLE delivery_status (
